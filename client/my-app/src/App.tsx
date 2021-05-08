@@ -1,8 +1,11 @@
 import React from 'react';
+import Navbar from "./components/navbar/Navbar";
+import './app.less'
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
+      <Navbar />
     </div>
   );
 }
