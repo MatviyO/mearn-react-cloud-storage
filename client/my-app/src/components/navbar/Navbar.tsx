@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import logo from '../../assets/img/cloud-svgrepo-com.svg'
 import './navbar.scss'
 
@@ -17,15 +17,17 @@ const Navbar = () => {
                         <li><a href="#" className="nav-link px-2 text-white">FAQs</a></li>
                         <li><a href="#" className="nav-link px-2 text-white">About</a></li>
                     </ul>
-                    <div className="text-end">
-                        <button type="button" className="btn btn-outline-light me-2"><NavLink to="/login">Login</NavLink></button>
-                        <button type="button" className="btn btn-warning"><NavLink to="/registration">Registration</NavLink></button>
-                    </div>
+                    <div className="text-end d-flex">
+                        <NavLink className="nav-link px-4 text-white header-link me-2 " activeClassName="active" to="/login">Login</NavLink>
+                        <NavLink className="nav-link btn-warning px-4 text-white header-link " activeClassName="active"
+                            to="/registration">Registration
+                    </NavLink>
                 </div>
             </div>
-        </header>
+        </div>
+</header>
 
-    );
+);
 }
 
 export default Navbar;

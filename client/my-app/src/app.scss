@@ -14,7 +14,12 @@ body {
   align-items: center;
   background-color: $background-color;
 }
-
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
 #root {
   width: 100%;
 }
