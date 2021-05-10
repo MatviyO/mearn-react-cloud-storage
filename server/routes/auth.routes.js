@@ -7,7 +7,7 @@ const {check, validationResult} = require('express-validator')
 const jwt = require('jsonwebtoken')
 
 
-router.post('registration', [
+router.post('/registration', [
     check('email', 'Uncorrect email').isEmail(),
     check('password', 'Password must be longer than 3 and shorter than 12').isLength({min: 3., max: 12})
 ], async (req, res) => {

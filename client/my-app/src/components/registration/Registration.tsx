@@ -3,6 +3,8 @@ import Input from "../input/Input";
 import {registration} from "../../actions/user";
 
 const Registration = () => {
+
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -12,7 +14,7 @@ const Registration = () => {
 
                 <main className="form-signin mt-5">
 
-                    <form>
+                    <form onSubmit={(e) => e.preventDefault()}>
                         <img className="mb-3 mt-3" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo.svg" alt=""
                              height="57"/>
                         <h1 className="h3 mb-3 fw-normal">Registration</h1>
