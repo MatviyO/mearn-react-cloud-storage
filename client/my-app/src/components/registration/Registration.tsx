@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import Input from "../input/Input";
 import {registration} from "../../actions/user";
 
 const Registration = () => {
