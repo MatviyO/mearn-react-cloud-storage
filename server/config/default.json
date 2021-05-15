@@ -1,5 +1,6 @@
 {
   "port": 5000,
   "mongoUrl": "mongodb+srv://link:link313@cluster0.sqhk8.mongodb.net/cloud?retryWrites=true&w=majority",
-  "secretKey": "mern-storage"
+  "secretKey": "mern-storage",
+  "filePath": "C:\\Users\\User\\Code\\github\\mearn-react-cloud-storage\\server\\files"
 }
