@@ -3,7 +3,6 @@ import {registration} from "../../actions/user";
 
 const Registration = () => {
 
-
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 

@@ -10,6 +10,7 @@ type Props = {
 }
 
 const Navbar: FC<Props> = ({isAuth}) => {
+
     const dispatch = useDispatch()
     return (
         <header className="p-3 bg-dark text-white">
@@ -18,12 +19,12 @@ const Navbar: FC<Props> = ({isAuth}) => {
                     <a href="/" className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none mr-2">
                         <img src={logo} alt="" width={50} height={50}/>
                     </a>
-                    <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                    { isAuth && <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="#" className="nav-link px-2 text-secondary">Home</a></li>
                         <li><a href="#" className="nav-link px-2 text-white">Features</a></li>
                         <li><a href="#" className="nav-link px-2 text-white">FAQs</a></li>
                         <li><a href="#" className="nav-link px-2 text-white">About</a></li>
-                    </ul>
+                    </ul>}
                     { !isAuth && <div className="text-end d-flex">
                         <NavLink className="nav-link px-4 text-white header-link me-2 " activeClassName="active"
                                  to="/login">Login</NavLink>
