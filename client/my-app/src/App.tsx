@@ -5,13 +5,13 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 import Registration from "./components/registration/Registration";
 import Login from "./components/login/Login";
 import {useDispatch, useSelector} from "react-redux";
-import {ISelector} from "./interfaces/IStateReducer";
 import {auth} from "./actions/user";
 import Disk from "./components/disk/DIsk";
+import {IStateReducer} from "./interfaces/IStateReducer";
 
 
 function App() {
-    const isAuth = useSelector<ISelector>(state => state.user.isAuth)
+    const isAuth = useSelector<IStateReducer>(state => state.user.isAuth)
     const dispatch = useDispatch()
 
     useEffect(() => {

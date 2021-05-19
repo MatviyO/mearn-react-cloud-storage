@@ -1,13 +1,13 @@
 import React, {FC} from 'react'
 
 type Props = {
-    type: string
-    placeholder: string
 }
 
-const File: FC<Props> = ({type, placeholder}) => {
+const File: FC<Props> = ({}) => {
     return(
-        <input type={type} placeholder={placeholder}/>
+        <div>
+
+        </div>
     );
 }
 
