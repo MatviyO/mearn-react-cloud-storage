@@ -1,7 +1,7 @@
 import React, {FC, useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {IStateReducer} from "../../interfaces/IStateReducer";
-import {getFiles} from "../../actions/file";
+import {getFiles} from "../../services/file";
 import FileList from "./fileList/FileList";
 import './disk.scss'
 type Props = {

@@ -1,5 +1,4 @@
-const SET_FILES = 'SET_FILES'
-const SET_CURRENT_DIR = 'SET_CURRENT_DIR'
+import {SET_CURRENT_DIR, SET_FILES} from "../type";
 
 const defaultState =  {
     files: [],
@@ -14,7 +13,3 @@ export default function fileReducer(state = defaultState, action) {
             return state;
     }
 }
-
-//action
-export const setFiles = (files) => ({type: SET_FILES, payload: files })
-export const setCurrent = (dir) => ({type: SET_CURRENT_DIR, payload: dir })

@@ -5,7 +5,7 @@ import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 import Registration from "./components/registration/Registration";
 import Login from "./components/login/Login";
 import {useDispatch, useSelector} from "react-redux";
-import {auth} from "./actions/user";
+import {auth} from "./services/user";
 import Disk from "./components/disk/DIsk";
 import {IStateReducer} from "./interfaces/IStateReducer";
 

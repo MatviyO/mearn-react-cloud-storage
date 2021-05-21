@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {registration} from "../../actions/user";
+import {registration} from "../../services/user";
 
 const Registration = () => {
 

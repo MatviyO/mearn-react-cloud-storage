@@ -1,5 +1,5 @@
 
-import { setUser } from "../reducers/userReducer";
+import { setUser } from "../redux/reducers/userReducer";
 
 
 const headers = {
