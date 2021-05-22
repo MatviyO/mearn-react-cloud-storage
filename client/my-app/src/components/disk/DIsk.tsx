@@ -20,8 +20,8 @@ const Disk: FC<Props> = ({type, placeholder}) => {
     return(
         <div className="disk">
             <div className="disk__btns">
-                <button className="click__back"></button>
-                <button className="click__create"></button>
+                <button type="button" className="btn btn-dark me-2">Back</button>
+                <button type="button" className="btn btn-dark">Create</button>
             </div>
             <FileList />
         </div>

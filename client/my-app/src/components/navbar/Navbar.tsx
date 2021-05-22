@@ -3,7 +3,7 @@ import {NavLink} from 'react-router-dom';
 import logo from '../../assets/img/cloud-svgrepo-com.svg'
 import './navbar.scss'
 import {useDispatch} from "react-redux";
-import { logout } from '../../redux/reducers/userReducer';
+import {logout} from "../../redux/action/userAction";
 
 type Props = {
     isAuth: any
