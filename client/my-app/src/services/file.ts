@@ -14,6 +14,7 @@ export function getFiles(dirId: string) {
     }
 }
 
+
 export function createDir(dirId: string, name: string) {
     return async (dispatch: any) => {
         try {
