@@ -1,7 +1,7 @@
 import React, {FC, useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {IStateReducer} from "../../interfaces/IStateReducer";
-import {getFiles} from "../../services/file";
+import {createDir, getFiles} from "../../services/file";
 import FileList from "./fileList/FileList";
 import './disk.scss'
 type Props = {
@@ -17,11 +17,15 @@ const Disk: FC<Props> = ({type, placeholder}) => {
         dispatch(getFiles(currentDir))
     }, [currentDir])
 
+    function createander() {
+        dispatch(createDir(currentDir, 'dffd'))
+    }
+
     return(
         <div className="disk">
             <div className="disk__btns">
                 <button type="button" className="btn btn-dark me-2">Back</button>
-                <button type="button" className="btn btn-dark">Create</button>
+                <button type="button" className="btn btn-dark" onClick={() => createander()}>Create</button>
             </div>
             <FileList />
         </div>

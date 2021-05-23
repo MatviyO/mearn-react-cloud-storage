@@ -1,4 +1,4 @@
-import {setFiles} from "../redux/action/fileAction";
+import {addFile, setFiles} from "../redux/action/fileAction";
 import {BaseDataService} from "./BaseDataService";
 const svc = new BaseDataService()
 
@@ -24,7 +24,7 @@ export function createDir(dirId: string, name: string) {
                 type: 'dir'
             })
             const result = await svc.request(`api/files`, 'POST', body)
-            dispatch(setFiles(result))
+            dispatch(addFile(result))
             alert(JSON.stringify(result))
         } catch (e) {
             alert(console.log(e))
