@@ -4,17 +4,16 @@ import {IStateReducer} from "../../interfaces/IStateReducer";
 import {createDir, getFiles} from "../../services/file";
 import FileList from "./fileList/FileList";
 import './disk.scss'
-import {setPopupDisplay} from "../../redux/action/fileAction";
+import {setCurrentDir, setPopupDisplay} from "../../redux/action/fileAction";
 import Popup from "./Popup/Popup";
 
 type Props = {
-    type: string
-    placeholder: string
 }
 
-const Disk: FC<Props> = ({type, placeholder}) => {
+const Disk: FC<Props> = () => {
     const dispatch = useDispatch()
     const currentDir = useSelector((state: IStateReducer) => state.files.currentDir)
+    const dirDisk = useSelector((state: IStateReducer) => state.files.dirStack)
 
     useEffect(() => {
         dispatch(getFiles(currentDir))
@@ -24,6 +23,10 @@ const Disk: FC<Props> = ({type, placeholder}) => {
         dispatch(setPopupDisplay('flex'))
 
     }
+    function backClickHandler() {
+        const backDirId = dirDisk.pop()
+        dispatch(setCurrentDir(backDirId))
+    }
 
     return (
         <div className="container">
@@ -31,7 +34,7 @@ const Disk: FC<Props> = ({type, placeholder}) => {
                 <div className="col-12">
                     <div className="disk">
                         <div className="disk__btns">
-                            <button type="button" className="btn btn-dark me-2">Back</button>
+                            <button type="button" className="btn btn-dark me-2" onClick={() => backClickHandler()}>Back</button>
                             <button type="button" className="btn btn-dark" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" onClick={() => createander()}>Create
                             </button>
