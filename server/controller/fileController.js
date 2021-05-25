@@ -13,7 +13,7 @@ class FileController {
                 file.path = name
                 await fileService.createDir(file)
             } else {
-                file.path = `${parentFile}\\${file.name}`
+                file.path = `${parentFile.path}\\${file.name}`
                 await fileService.createDir(file)
                 parentFile.childs.push(file._id)
                 await parentFile.save()
@@ -22,7 +22,7 @@ class FileController {
             return res.json(file)
 
         } catch (e) {
-            return req.status(400).json(e)
+            return res.status(400).json(e)
         }
     }
 

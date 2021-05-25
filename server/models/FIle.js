@@ -6,6 +6,7 @@ const File = new Schema({
     accessLink: {type: String},
     size: {type: Number, default: 0},
     path: {type: String, default: ''},
+    user: { type: ObjectId, ref: 'user'},
     date: {type: Date, default: Date.now()},
     parent: { type: ObjectId, ref: 'File'},
     childs: [{type: ObjectId, ref: 'File'}]

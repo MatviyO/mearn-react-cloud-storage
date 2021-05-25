@@ -8,7 +8,7 @@ export  interface  IStateReducer {
     files: {
         files: [],
         currentDir: string;
-        popupDisplay: boolean
+        popupDisplay: string
     }
 
 }

@@ -9,9 +9,9 @@ export const registration = async (email: string, password: string) => {
             password
         };
         const result = await svc.request(`auth/registration`, 'POST', user)
-        alert(JSON.stringify(result))
+        console.log(JSON.stringify(result))
     } catch (e) {
-        alert(console.log(e))
+        console.log(e)
     }
 }
 
@@ -27,7 +27,7 @@ export const login = (email: string, password: string) => {
            localStorage.setItem('token', result.token)
            console.log(result)
        } catch (e) {
-           alert(console.log(e))
+           console.log(e)
        }
    }
 }
@@ -40,7 +40,7 @@ export const auth = () => {
             localStorage.setItem('token', result.token)
             console.log(result)
         } catch (e) {
-            alert(console.log(e))
+           console.log(e)
             localStorage.removeItem('token')
         }
     }
