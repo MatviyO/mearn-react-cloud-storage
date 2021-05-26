@@ -17,7 +17,6 @@ const File: FC<Props> = ({file}) => {
     const currentDir = useSelector((state: IStateReducer) => state.files.currentDir)
 
     function openDirHandler() {
-        console.log(file)
         dispatch(pushToStack(currentDir))
         dispatch(setCurrentDir(file._id))
     }

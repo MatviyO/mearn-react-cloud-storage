@@ -1,7 +1,7 @@
 import React, {FC, useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {IStateReducer} from "../../interfaces/IStateReducer";
-import {createDir, getFiles} from "../../services/file";
+import {getFiles} from "../../services/file";
 import FileList from "./fileList/FileList";
 import './disk.scss'
 import {setCurrentDir, setPopupDisplay} from "../../redux/action/fileAction";
@@ -25,7 +25,7 @@ const Disk: FC<Props> = () => {
     }
     function backClickHandler() {
         const backDirId = dirDisk.pop()
-        dispatch(setCurrentDir(backDirId))
+        dispatch(setCurrentDir(backDirId as string))
     }
 
     return (
@@ -34,7 +34,8 @@ const Disk: FC<Props> = () => {
                 <div className="col-12">
                     <div className="disk">
                         <div className="disk__btns">
-                            <button type="button" className="btn btn-dark me-2" onClick={() => backClickHandler()}>Back</button>
+                            {currentDir && <button type="button" className="btn btn-dark me-2"
+                                     onClick={() => backClickHandler()}>Back</button>}
                             <button type="button" className="btn btn-dark" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" onClick={() => createander()}>Create
                             </button>

@@ -5,9 +5,7 @@ import {IStateReducer} from "../../../interfaces/IStateReducer";
 import File from "./file/File";
 
 type Props = {
-
 }
-
 const FileList: FC<Props> = ({}) => {
     const files = useSelector((state: IStateReducer) => state.files.files).map((file, index) => <File key={index} file={file}/>)
 
