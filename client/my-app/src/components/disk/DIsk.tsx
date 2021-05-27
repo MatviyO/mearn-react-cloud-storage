@@ -39,6 +39,11 @@ const Disk: FC<Props> = () => {
                             <button type="button" className="btn btn-dark" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" onClick={() => createander()}>Create
                             </button>
+                            <div className="disk__upload">
+                                <label htmlFor="upload">Upload File</label>
+                                <input type="file" name="upload" id="upload" className="form-control upload-input" />
+
+                            </div>
                         </div>
                         <FileList/>
                         <Popup/>
