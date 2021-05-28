@@ -6,6 +6,10 @@ import {useDispatch, useSelector} from "react-redux";
 import {pushToStack, setCurrentDir} from "../../../../redux/action/fileAction";
 import {IStateReducer} from "../../../../interfaces/IStateReducer";
 
+interface IFile {
+    [key: string]: any
+}
+
 type Props = {
     file: {
         [key: string]: any
@@ -16,12 +20,14 @@ const File: FC<Props> = ({file}) => {
     const dispatch = useDispatch()
     const currentDir = useSelector((state: IStateReducer) => state.files.currentDir)
 
-    function openDirHandler() {
-        dispatch(pushToStack(currentDir))
-        dispatch(setCurrentDir(file._id))
+    function openDirHandler(file: IFile) {
+        if (file.type === 'dir') {
+            dispatch(pushToStack(currentDir))
+            dispatch(setCurrentDir(file._id))
+        }
     }
     return(
-        <div className="file" onClick={file.type === 'dir' ? () => openDirHandler() : undefined}>
+        <div className="file" onClick={() => openDirHandler(file)}>
             <img className="file__img" src={file.type === 'dir' ? dir : fileIcon} alt=""/>
             <div className="file__name">{file.name}</div>
             <div className="file__date">{file.date.slice(0, 10)}</div>

@@ -30,3 +30,21 @@ export function createDir(dirId: string, name: string) {
         }
     }
 }
+
+
+export function uploadFile(file: any, dirId: string) {
+    console.log(file, dirId)
+    return async (dispatch: any) => {
+        try {
+            const files = file
+            const formData = new FormData()
+            formData.append('file', files)
+            if (dirId) formData.append('parent', dirId)
+            const result = await svc.request(`files/upload`, 'POST', null, formData)
+            dispatch(addFile(result))
+
+        } catch (e) {
+            console.log(e)
+        }
+    }
+}

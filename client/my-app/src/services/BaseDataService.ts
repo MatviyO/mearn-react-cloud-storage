@@ -10,7 +10,7 @@ export class BaseDataService {
         }
     }
 
-    async request (url: string, method = 'GET', body: any = null) {
+    async request (url: string, method = 'GET', body: any = null, files?: any ) {
         const options: any = {
             method,
             headers: {
@@ -19,7 +19,8 @@ export class BaseDataService {
             },
             credentials: this.credentials,
         };
-        (method === "POST" || method === "PUT") && (options.body = JSON.stringify(body))
+        (method === "POST" || method === "PUT") && !files && (options.body = JSON.stringify(body))
+        files && (options.body = files)
 
         try {
             let response = await fetch(`${this.baseUrl}/${url}`, options);

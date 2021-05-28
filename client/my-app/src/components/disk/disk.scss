@@ -11,6 +11,11 @@
   .upload-input {
     display: none;
   }
+  &__upload-label {
+    border: 2px solid grey;
+    cursor: pointer;
+    padding: 5px 10px;
+  }
   
 
 }

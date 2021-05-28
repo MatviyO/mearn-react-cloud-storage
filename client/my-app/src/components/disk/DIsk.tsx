@@ -1,11 +1,11 @@
-import React, {FC, useEffect} from 'react'
+import React, {ChangeEvent, FC, useEffect} from 'react'
 import {useDispatch, useSelector} from "react-redux";
 import {IStateReducer} from "../../interfaces/IStateReducer";
-import {getFiles} from "../../services/file";
+import {getFiles, uploadFile} from "../../services/file";
 import FileList from "./fileList/FileList";
-import './disk.scss'
 import {setCurrentDir, setPopupDisplay} from "../../redux/action/fileAction";
 import Popup from "./Popup/Popup";
+import './disk.scss'
 
 type Props = {
 }
@@ -27,6 +27,9 @@ const Disk: FC<Props> = () => {
         const backDirId = dirDisk.pop()
         dispatch(setCurrentDir(backDirId as string))
     }
+    function handlerFileup(files: FileList) {
+        currentDir && dispatch(uploadFile(files, currentDir))
+    }
 
     return (
         <div className="container">
@@ -39,11 +42,12 @@ const Disk: FC<Props> = () => {
                             <button type="button" className="btn btn-dark" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" onClick={() => createander()}>Create
                             </button>
-                            <div className="disk__upload">
-                                <label htmlFor="upload">Upload File</label>
-                                <input type="file" name="upload" id="upload" className="form-control upload-input" />
-
-                            </div>
+                            {currentDir && <div className="disk__upload ms-2">
+                                <label htmlFor="upload" className="disk__upload-label">Upload File</label>
+                                <input type="file" name="upload" id="upload"
+                                       onChange={(e) => handlerFileup(e.target.files as FileList)}
+                                       className="form-control upload-input"/>
+                            </div>}
                         </div>
                         <FileList/>
                         <Popup/>
