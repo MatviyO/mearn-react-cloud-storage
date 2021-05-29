@@ -8,6 +8,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {auth} from "./services/user";
 import Disk from "./components/disk/DIsk";
 import {IStateReducer} from "./interfaces/IStateReducer";
+import Animations from "./components/animations/Animations";
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
                     </Switch>
                         : <Switch>
                             <Route exact path="/" component={Disk}/>
+                            <Route exact path="/animations" component={Animations}/>
                             <Redirect to="/" />
                         </Switch>
                 }
