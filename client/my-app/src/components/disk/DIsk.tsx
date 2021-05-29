@@ -27,8 +27,8 @@ const Disk: FC<Props> = () => {
         const backDirId = dirDisk.pop()
         dispatch(setCurrentDir(backDirId as string))
     }
-    function handlerFileup(files: FileList) {
-        currentDir && dispatch(uploadFile(files, currentDir))
+    function handlerFileup(files: any) {
+        dispatch(uploadFile(files[0], currentDir))
     }
 
     return (
@@ -42,12 +42,12 @@ const Disk: FC<Props> = () => {
                             <button type="button" className="btn btn-dark" data-bs-toggle="modal"
                                     data-bs-target="#exampleModal" onClick={() => createander()}>Create
                             </button>
-                            {currentDir && <div className="disk__upload ms-2">
+                            <div className="disk__upload ms-2">
                                 <label htmlFor="upload" className="disk__upload-label">Upload File</label>
                                 <input type="file" name="upload" id="upload"
                                        onChange={(e) => handlerFileup(e.target.files as FileList)}
                                        className="form-control upload-input"/>
-                            </div>}
+                            </div>
                         </div>
                         <FileList/>
                         <Popup/>

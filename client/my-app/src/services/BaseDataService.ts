@@ -6,7 +6,7 @@ export class BaseDataService {
     constructor() {
         this.headers = {
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
+
         }
     }
 
@@ -19,8 +19,12 @@ export class BaseDataService {
             },
             credentials: this.credentials,
         };
-        (method === "POST" || method === "PUT") && !files && (options.body = JSON.stringify(body))
-        files && (options.body = files)
+        (method === "POST" || method === "PUT") && !files && (options.body = JSON.stringify(body)) &&  (options.headers = {
+            ...options.headers,  'Content-Type': 'application/json',
+        })
+        files && (options.body = files) && (options.headers = {
+            ...options.headers, "Contetnt-Type":"multipart/form-data"
+        })
 
         try {
             let response = await fetch(`${this.baseUrl}/${url}`, options);

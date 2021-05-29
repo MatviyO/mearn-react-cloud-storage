@@ -39,13 +39,12 @@ class FileController {
 
     async uploadFile(req, res) {
         try {
-            const file = req.files.files
+            const file = req.files.file
             const parent = await File.findOne({user: req.user.id, _id: req.body.parent})
             const user = await  User.findOne({ _id: req.user.id})
             if ( user.usedSpace + file.size > user.diskSpace) {
                 return res.status.json({message: 'There no space on the disk'})
             }
-
             user.usedSpace = user.usedSpace + file.size
             let path;
             if ( parent) {
@@ -57,7 +56,6 @@ class FileController {
             if(fs.existsSync(path)) {
                 return res.status(400).json({message: 'File already exist'})
             }
-
             file.mv(path)
             const type = file.name.split('.').pop()
             const dbFile = new File({
