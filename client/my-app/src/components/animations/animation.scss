@@ -10,8 +10,26 @@
   height: 100px;
   border-radius: 50%;
   border: 3px dashed black;
+
+}
+//екстеринг
+.entering {
   animation: show-loader 0.5s forwards;
 }
+//увійшов
+.entered {
+  animation: rotate-loader 0.5s infinite;
+}
+
+//вихід
+.exiting {
+  animation: show-loader 0.5s reverse;
+}
+//вийшов
+.exited {
+
+}
+
 
 @keyframes show-loader {
   0% {
@@ -22,15 +40,44 @@
     opacity: 1;
   }
   100% {
-    transform: translateY(0px);
+    transform: translateY(0);
   }
 }
 
 @keyframes rotate-loader {
   0% {
-    transform: rotate(0deg);
+    transform: rotate(0);
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+
+
+.fade-enter-active {
+  animation: fade-in 0.5s forwards;
+}
+.fade-exit-active {
+  animation: fade-out 0.5s forwards;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-150px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-150px);
   }
 }
