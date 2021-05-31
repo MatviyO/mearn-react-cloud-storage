@@ -6,7 +6,6 @@ export class BaseDataService {
     constructor() {
         this.headers = {
             'Accept': 'application/json',
-
         }
     }
 

@@ -17,6 +17,7 @@ app.use(express.json())
 app.use('/api/auth', authRouter)
 app.use('/api/files', filehRouter)
 
+
 const start = async () => {
     try {
         await mongoose.connect(config.get("mongoUrl"), { useNewUrlParser: true, useUnifiedTopology: true })
