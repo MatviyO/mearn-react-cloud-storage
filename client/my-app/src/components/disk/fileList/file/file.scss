@@ -22,5 +22,12 @@
     grid-column-start: 6;
     justify-self: center;
   }
+  &__action {
+    grid-column-start: 7;
+    justify-self: center;
+    width: 200px;
+    justify-content: center;
+    display: flex;
+  }
 
 }

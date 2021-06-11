@@ -9,12 +9,14 @@ type Props = {
 const FileList: FC<Props> = ({}) => {
     const files = useSelector((state: IStateReducer) => state.files.files).map((file, index) => <File key={index} file={file}/>)
 
+
     return(
         <div className="filelist">
             <div className="filelist__header">
                 <div className="filelist__name">Name</div>
                 <div className="filelist__date">Date</div>
                 <div className="filelist__size">Space</div>
+                <div className="filelist__action">Action</div>
             </div>
             {files}
         </div>

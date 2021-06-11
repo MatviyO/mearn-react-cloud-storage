@@ -9,7 +9,7 @@ export class BaseDataService {
         }
     }
 
-    async request (url: string, method = 'GET', body: any = null, files?: any ) {
+    async request (url: string, method = 'GET', body: any = null, files?: any , type?: string) {
         const options: any = {
             method,
             headers: {
@@ -30,7 +30,13 @@ export class BaseDataService {
             if (!response.ok) {
                 return await Promise.reject();
             } else {
-                return await response.json()
+                if (type) {
+                    return await response.blob()
+
+                } else {
+                    return await response.json()
+
+                }
             }
         } catch (error) {
             return await Promise.reject();

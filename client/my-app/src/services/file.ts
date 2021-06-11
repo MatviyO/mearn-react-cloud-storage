@@ -48,3 +48,16 @@ export function uploadFile(file: any, dirId: string) {
         }
     }
 }
+
+export async  function downloadFile(file: any) {
+    const response = await svc.request(`files/download?id=${file._id}`, 'GET', null,null, 'blob')
+    if (response) {
+        const download = window.URL.createObjectURL(response)
+        const link = document.createElement('a')
+        link.href = download
+        link.download = file.name
+        document.body.appendChild(link)
+        link.click()
+        link.remove()
+    }
+}
