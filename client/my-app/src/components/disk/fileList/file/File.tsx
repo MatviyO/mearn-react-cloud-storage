@@ -5,7 +5,7 @@ import fileIcon from '../../../../assets/img/file.png'
 import {useDispatch, useSelector} from "react-redux";
 import {pushToStack, setCurrentDir} from "../../../../redux/action/fileAction";
 import {IStateReducer} from "../../../../interfaces/IStateReducer";
-import {downloadFile} from "../../../../services/file";
+import {deleteFile, downloadFile} from "../../../../services/file";
 
 interface IFile {
     [key: string]: any
@@ -31,6 +31,10 @@ const File: FC<Props> = ({file}) => {
         downloadFile(file)
     }
 
+    const deleteCLickHandler = (e: any) => {
+        dispatch(deleteFile(file))
+    }
+
 
     return(
         <div className="file" onClick={() => openDirHandler(file)}>
@@ -42,7 +46,7 @@ const File: FC<Props> = ({file}) => {
                 { file.type !== 'dir' && <button type="button"
                                                  onClick={(e) => downloadClickHandler(e)}
                                                  className="btn btn-dark me-2">Download</button>}
-                <button type="button" className="btn btn-dark">Delete</button>
+                <button type="button" onClick={(e) => deleteCLickHandler(e)} className="btn btn-dark">Delete</button>
             </div>
         </div>
     );

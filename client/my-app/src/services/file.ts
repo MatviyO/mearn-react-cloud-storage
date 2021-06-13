@@ -1,4 +1,4 @@
-import {addFile, setFiles} from "../redux/action/fileAction";
+import {addFile, deleteFileAction, setFiles} from "../redux/action/fileAction";
 import {BaseDataService} from "./BaseDataService";
 const svc = new BaseDataService()
 
@@ -59,5 +59,17 @@ export async  function downloadFile(file: any) {
         document.body.appendChild(link)
         link.click()
         link.remove()
+    }
+}
+
+export function deleteFile(file: any) {
+    return async (dispatch: any) => {
+        try {
+            const result = await svc.request(`files?=${file._id}`, 'DELETE')
+            dispatch(deleteFileAction(file._id))
+            alert(result.data.message)
+        } catch (e) {
+            console.log(e)
+        }
     }
 }
