@@ -1,14 +1,18 @@
 import {addFile, deleteFileAction, setFiles} from "../redux/action/fileAction";
 import {BaseDataService} from "./BaseDataService";
+import {hideLoader, showLoader} from "../redux/action/appAction";
 const svc = new BaseDataService()
 
-export function getFiles(dirId: string) {
+export function getFiles(dirId: string, sort: string) {
     return async (dispatch: any) => {
         try {
-            const result = await svc.request(`files${dirId ? `?parent=`+dirId : ''}`, 'GET')
+            dispatch(showLoader())
+            const result = await svc.request(`files${dirId ? `?parent=`+dirId : ''}${sort ? `&sort=${sort}` : ''}`, 'GET')
             dispatch(setFiles(result))
         } catch (e) {
             console.log(e)
+        } finally {
+            dispatch(hideLoader())
         }
     }
 }

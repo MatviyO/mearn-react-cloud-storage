@@ -13,11 +13,10 @@ const Disk: FC<Props> = () => {
     const dispatch = useDispatch()
     const currentDir = useSelector((state: IStateReducer) => state.files.currentDir)
     const dirDisk = useSelector((state: IStateReducer) => state.files.dirStack)
-    const [dragEnter, setDragEnter] = useState(false)
+    const loader = useSelector((state: IStateReducer) => state.appGlobal.loader)
 
-    useEffect(() => {
-        dispatch(getFiles(currentDir))
-    }, [currentDir])
+    const [dragEnter, setDragEnter] = useState(false)
+    const [sort, setSort]= useState("type");
 
     function createander() {
         dispatch(setPopupDisplay('flex'))
@@ -48,13 +47,30 @@ const Disk: FC<Props> = () => {
         dispatch(uploadFile(filesDrag[0], currentDir))
     }
 
+    useEffect(() => {
+
+        dispatch(getFiles(currentDir, sort))
+    }, [currentDir, sort])
+
+    useEffect(() => {
+        console.log(loader, 'loader')
+    }, [])
+
+    if (loader) {
+        return (
+            <div className="loader">
+                <div className="lds-dual-ring"></div>
+            </div>
+        )
+
+    }
+
     return (
         <div className="container">
             <div className="row">
                 <div className="col-12">
                     {!dragEnter ? <div className="disk" onDragEnter={onDragEnterHandler}
                                         onDragLeave={onDragLeaveHandler}
-                                        // onDragOver={onDragLeaveHandler}
                         >
                         <div className="disk__btns">
                             {currentDir && <button type="button" className="btn btn-dark me-2"
@@ -68,6 +84,13 @@ const Disk: FC<Props> = () => {
                                        onChange={(e) => handlerFileup(e.target.files as FileList)}
                                        className="form-control upload-input"/>
                             </div>
+                            <div>
+                                <select className="form-select mx-2"  value={sort} onChange={e => setSort(e.target.value)} >
+                                    <option value="name">Name</option>
+                                    <option value="type">Type</option>
+                                    <option value="date">Date</option>
+                                </select>
+                            </div>
                         </div>
                         <FileList/>
                         <Popup/>
@@ -76,7 +99,6 @@ const Disk: FC<Props> = () => {
                         <div className="drag-area" onDragEnter={onDragEnterHandler}
                              onDrop={(e) => dropHandler(e, e.dataTransfer.files)}
                              onDragLeave={onDragLeaveHandler}
-                             // onDragOver={onDragLeaveHandler}
                         >
                             Move files here
                         </div>
