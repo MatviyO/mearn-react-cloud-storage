@@ -52,9 +52,6 @@ const Disk: FC<Props> = () => {
         dispatch(getFiles(currentDir, sort))
     }, [currentDir, sort])
 
-    useEffect(() => {
-        console.log(loader, 'loader')
-    }, [])
 
     if (loader) {
         return (

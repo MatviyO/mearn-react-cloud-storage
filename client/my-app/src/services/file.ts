@@ -77,3 +77,16 @@ export function deleteFile(file: any) {
         }
     }
 }
+export function searchFiles(search: string) {
+    return async (dispatch: any) => {
+        try {
+            const result = await svc.request(`files?search=${search}`, 'GET')
+            dispatch(setFiles(result))
+            alert(result.data.message)
+        } catch (e) {
+            console.log(e)
+        } finally {
+            dispatch(hideLoader())
+        }
+    }
+}

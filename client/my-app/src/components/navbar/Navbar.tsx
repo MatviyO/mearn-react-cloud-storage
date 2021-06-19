@@ -1,17 +1,40 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 import {NavLink} from 'react-router-dom';
 import logo from '../../assets/img/cloud-svgrepo-com.svg'
 import './navbar.scss'
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {logout} from "../../redux/action/userAction";
+import {getFiles} from "../../services/file";
+import {IStateReducer} from "../../interfaces/IStateReducer";
+import {showLoader} from "../../redux/action/appAction";
 
 type Props = {
     isAuth: any
 }
 
 const Navbar: FC<Props> = ({isAuth}) => {
+    const [search, setSearch] = useState<string>('')
+    const [searchTimeout, setSearchTimeout] = useState<any>(false)
+    const currentDir = useSelector((state: IStateReducer) => state.files.currentDir)
 
     const dispatch = useDispatch()
+
+    const searchFiles = (search: string) => {
+        setSearch(search)
+        if (searchTimeout != false) {
+            clearTimeout(searchTimeout)
+        }
+        dispatch(showLoader())
+       if(search != '') {
+           setSearchTimeout(setTimeout((value) => {
+               dispatch(searchFiles(value))
+           }, 500, search))
+       } else {
+           dispatch(getFiles(currentDir, 'type'))
+       }
+
+
+    }
     return (
         <header className="p-3 bg-dark text-white">
             <div className="container">
@@ -27,6 +50,12 @@ const Navbar: FC<Props> = ({isAuth}) => {
                                  to="/">FAQs</NavLink>
                         <NavLink className="nav-link px-2 text-white"
                                  to="/animations">Animations</NavLink>
+                        <div>
+                            <input type="text"
+                                   value={search}
+                                   onChange={e => searchFiles(e.target.value)}
+                                   className="form-control"/>
+                        </div>
                     </ul>}
                     { !isAuth && <div className="text-end d-flex">
                         <NavLink className="nav-link px-4 text-white header-link me-2 " activeClassName="active"
