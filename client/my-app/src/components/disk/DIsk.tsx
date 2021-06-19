@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {IStateReducer} from "../../interfaces/IStateReducer";
 import {getFiles, uploadFile} from "../../services/file";
 import FileList from "./fileList/FileList";
-import {setCurrentDir, setPopupDisplay} from "../../redux/action/fileAction";
+import {setCurrentDir, setFileView, setPopupDisplay} from "../../redux/action/fileAction";
 import Popup from "./Popup/Popup";
 import './disk.scss'
 
@@ -48,18 +48,16 @@ const Disk: FC<Props> = () => {
     }
 
     useEffect(() => {
-
         dispatch(getFiles(currentDir, sort))
     }, [currentDir, sort])
 
 
-    if (loader) {
+    if (loader === true) {
         return (
             <div className="loader">
                 <div className="lds-dual-ring"></div>
             </div>
         )
-
     }
 
     return (
@@ -87,6 +85,11 @@ const Disk: FC<Props> = () => {
                                     <option value="type">Type</option>
                                     <option value="date">Date</option>
                                 </select>
+                            </div>
+
+                            <div className="mx-2 px-2">
+                                <button className="btn btn-dark mx-1" onClick={() => dispatch(setFileView('plate'))}>[]</button>
+                                <button className="btn btn-dark " onClick={() => dispatch(setFileView('list'))}>--</button>
                             </div>
                         </div>
                         <FileList/>

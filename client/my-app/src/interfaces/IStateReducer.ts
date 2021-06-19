@@ -10,6 +10,7 @@ export  interface  IStateReducer {
         currentDir: string;
         popupDisplay: string;
         dirStack: Array<string>
+        view: string
     },
     appGlobal: {
         loader: boolean

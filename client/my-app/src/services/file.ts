@@ -6,7 +6,6 @@ const svc = new BaseDataService()
 export function getFiles(dirId: string, sort: string) {
     return async (dispatch: any) => {
         try {
-            dispatch(showLoader())
             const result = await svc.request(`files${dirId ? `?parent=`+dirId : ''}${sort ? `&sort=${sort}` : ''}`, 'GET')
             dispatch(setFiles(result))
         } catch (e) {

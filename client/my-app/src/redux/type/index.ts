@@ -11,6 +11,7 @@ export const SET_POPUP = 'SET_POPUP'
 export const PUSH_TO_STACK = 'PUSH_TO_STACK'
 export const POP_FROM_STACK = 'POP_FROM_STACK'
 export const DELETE_FILE = 'DELETE_FILE'
+export const SET_VIEW = 'SET_VIEW'
 
 //app
 
