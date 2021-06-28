@@ -7,7 +7,7 @@ import {logout} from "../../redux/action/userAction";
 import {getFiles} from "../../services/file";
 import {IStateReducer} from "../../interfaces/IStateReducer";
 import {showLoader} from "../../redux/action/appAction";
-
+import avatarImg from '../../assets/img/avatar.svg'
 type Props = {
     isAuth: any
 }
@@ -16,6 +16,9 @@ const Navbar: FC<Props> = ({isAuth}) => {
     const [search, setSearch] = useState<string>('')
     const [searchTimeout, setSearchTimeout] = useState<any>(false)
     const currentDir = useSelector((state: IStateReducer) => state.files.currentDir)
+    const currentUser = useSelector((state: IStateReducer) => state.user.currentUser)
+    const baseUrl = 'http://localhost:5000/';
+    const avatar = currentUser.avatar ? `${baseUrl + currentUser.avatar}` : avatarImg
 
     const dispatch = useDispatch()
 
@@ -57,6 +60,7 @@ const Navbar: FC<Props> = ({isAuth}) => {
                                    className="form-control"/>
                         </div>
                     </ul>}
+
                     { !isAuth && <div className="text-end d-flex">
                         <NavLink className="nav-link px-4 text-white header-link me-2 " activeClassName="active"
                                  to="/login">Login</NavLink>
@@ -65,6 +69,9 @@ const Navbar: FC<Props> = ({isAuth}) => {
                     </div>}
                     { isAuth &&  <NavLink className="nav-link px-4 text-white header-link me-2 " activeClassName="active"
                               to="/login" onClick={() => dispatch(logout())}>Logout</NavLink>}
+                    {isAuth && <NavLink to="/profile">
+                        <img className="avatar__navbar" src={avatar} alt=""/>
+                    </NavLink>}
                 </div>
             </div>
         </header>

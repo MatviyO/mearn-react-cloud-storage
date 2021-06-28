@@ -9,6 +9,7 @@ import {auth} from "./services/user";
 import Disk from "./components/disk/DIsk";
 import {IStateReducer} from "./interfaces/IStateReducer";
 import Animations from "./components/animations/Animations";
+import Profile from "./components/profile/profile";
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
                         : <Switch>
                             <Route exact path="/" component={Disk}/>
                             <Route exact path="/animations" component={Animations}/>
+                            <Route exact path="/profile" component={Profile}/>
                             <Redirect to="/" />
                         </Switch>
                 }

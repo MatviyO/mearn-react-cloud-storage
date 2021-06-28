@@ -45,3 +45,28 @@ export const auth = () => {
         }
     }
 }
+export const uploadAvatar = (file: any) => {
+    return async (dispatch: any) => {
+        try {
+            const formData = new FormData()
+            formData.append('file', file)
+            const result = await svc.request(`files/avatar`, 'POST', null, formData)
+            dispatch(setUser(result.user))
+        } catch (e) {
+            console.log(e)
+            localStorage.removeItem('token')
+        }
+    }
+}
+
+export const deleteAvatar = () => {
+    return async (dispatch: any) => {
+        try {
+            const result = await svc.request(`files/avatar`, 'DELETE')
+            dispatch(setUser(result.user))
+        } catch (e) {
+            console.log(e)
+            localStorage.removeItem('token')
+        }
+    }
+}

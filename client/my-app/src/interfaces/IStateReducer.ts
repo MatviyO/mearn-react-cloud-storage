@@ -2,7 +2,9 @@
 
 export  interface  IStateReducer {
     user: {
-        currentUser: object,
+        currentUser: {
+            [key: string]: any
+        },
         isAuth: boolean
     };
     files: {
