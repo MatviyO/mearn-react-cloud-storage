@@ -43,6 +43,7 @@ export function uploadFile(file: any, dirId: string) {
             const formData = new FormData()
             formData.append('file', files)
             if (dirId) formData.append('parent', dirId)
+            console.log('formData', formData)
             const result = await svc.request(`files/upload`, 'POST', null, formData)
             dispatch(addFile(result))
 

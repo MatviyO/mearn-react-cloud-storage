@@ -1,0 +1,50 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:REQUEST
+BEGIN:VEVENT
+DTSTART:20210601T110000Z
+DTEND:20210601T120000Z
+DTSTAMP:20210527T074606Z
+ORGANIZER;CN=mariia.pantsiuk@bitsorchestra.com:mailto:mariia.pantsiuk@bitso
+ rchestra.com
+UID:2k9m2pqncanihc3jcv4o3f0k6t@google.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=myroslava.barabash@bitsorchestra.com;X-NUM-GUESTS=0:mailto:myroslav
+ a.barabash@bitsorchestra.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=oleh.matvii@bitsorchestra.com;X-NUM-GUESTS=0:mailto:oleh.matvii@bit
+ sorchestra.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=ACCEPTED;RSVP=TRUE
+ ;CN=mariia.pantsiuk@bitsorchestra.com;X-NUM-GUESTS=0:mailto:mariia.pantsiuk
+ @bitsorchestra.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=bohdan.maryniak@bitsorchestra.com;X-NUM-GUESTS=0:mailto:bohdan.mary
+ niak@bitsorchestra.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=andriy.nykolyn@bitsorchestra.com;X-NUM-GUESTS=0:mailto:andriy.nykol
+ yn@bitsorchestra.com
+ATTENDEE;CUTYPE=INDIVIDUAL;ROLE=REQ-PARTICIPANT;PARTSTAT=NEEDS-ACTION;RSVP=
+ TRUE;CN=serhii.kysil@bitsorchestra.com;X-NUM-GUESTS=0:mailto:serhii.kysil@b
+ itsorchestra.com
+X-MICROSOFT-CDO-OWNERAPPTID:-571352549
+CREATED:20210527T074603Z
+DESCRIPTION:-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~::~:~::-\nPlease do not edit this section of the descriptio
+ n.\n\nThis event has a video call.\nJoin: https://meet.google.com/mzi-rzbp-
+ zcx\n(GB) +44 20 3956 3727 PIN: 493334720#\nView more phone numbers: https:
+ //tel.meet/mzi-rzbp-zcx?pin=5727044763417&hs=7\n\nView your event at https:
+ //calendar.google.com/calendar/event?action=VIEW&eid=Mms5bTJwcW5jYW5paGMzam
+ N2NG8zZjBrNnQgb2xlaC5tYXR2aWlAYml0c29yY2hlc3RyYS5jb20&tok=MzMjbWFyaWlhLnBhb
+ nRzaXVrQGJpdHNvcmNoZXN0cmEuY29tN2Q5M2YyY2Q3NjQ1MjAyNzIwN2FmYzcwYWYxNTY3NDFj
+ NTU0YWQyOA&ctz=Europe%2FKiev&hl=en&es=1.\n-::~:~::~:~:~:~:~:~:~:~:~:~:~:~:~
+ :~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~:~::~:~::-
+LAST-MODIFIED:20210527T074604Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:Дія ФОП
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR

@@ -9,7 +9,7 @@ router.post('/avatar', authMiddleware, fileController.uploadAvatar)
 router.delete('/avatar', authMiddleware, fileController.deleteAvatar)
 router.get('', authMiddleware, fileController.getFilse)
 router.get('/download', authMiddleware, fileController.dowloandFile)
-router.get('/search', authMiddleware, fileController.searchFile())
+// router.get('/search', authMiddleware, fileController.searchFile())
 router.delete('/', authMiddleware, fileController.deleteFile)
 
 module.exports = router;

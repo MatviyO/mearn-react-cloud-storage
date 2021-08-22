@@ -28,6 +28,7 @@ const Disk: FC<Props> = () => {
     }
 
     function handlerFileup(files: any) {
+        console.log(files)
         dispatch(uploadFile(files[0], currentDir))
     }
     const onDragEnterHandler = (e: React.DragEvent<HTMLDivElement>): void => {

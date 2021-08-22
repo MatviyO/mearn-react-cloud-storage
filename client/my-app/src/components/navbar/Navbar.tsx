@@ -18,7 +18,7 @@ const Navbar: FC<Props> = ({isAuth}) => {
     const currentDir = useSelector((state: IStateReducer) => state.files.currentDir)
     const currentUser = useSelector((state: IStateReducer) => state.user.currentUser)
     const baseUrl = 'http://localhost:5000/';
-    const avatar = currentUser.avatar ? `${baseUrl + currentUser.avatar}` : avatarImg
+    const avatar = currentUser?.avatar ? `${baseUrl + currentUser.avatar}` : avatarImg
 
     const dispatch = useDispatch()
 
